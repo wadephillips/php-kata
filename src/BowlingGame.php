@@ -47,7 +47,6 @@ class BowlingGame
   {
     $this->rolls[] = $pins;
     if ($pins === 10) $this->rolls[] = 0;
-    var_dump($this->rolls); //todo resume: i think strikes are being added to the rolls correcty now but we're still not adding up correctly
   }
 
   private function awardSpareBonus(int $roll)
@@ -57,7 +56,7 @@ class BowlingGame
 
   private function awardStrikeBonus($roll)
   {
-    return $this->rolls[$roll+1] + $this->rolls[$roll+2];
+    return $this->rolls[$roll+2] + $this->rolls[$roll+3];
   }
 
   private function isSpare($roll)

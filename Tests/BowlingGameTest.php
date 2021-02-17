@@ -63,5 +63,28 @@ class BowlingGameTest extends TestCase
     $this->assertEquals(28, $game->score());
   }
 
+  /** @test */
+  public function itCorrectlyScoresAPerfectGame()
+  {
+    $game = new BowlingGame();
+
+    $game->roll(10);
+    $game->roll(10);
+    $game->roll(10);
+    $game->roll(10);
+    $game->roll(10);
+    $game->roll(10);
+    $game->roll(10);
+    $game->roll(10);
+    $game->roll(10);
+    $game->roll(10);
+
+    foreach (range(4,20) as $turn) {
+      $game->roll(0);
+    }
+
+    $this->assertEquals(300, $game->score());
+  }
+
 
 }
